@@ -1,3 +1,4 @@
+
 """
 URL configuration for defang_sample project.
 
@@ -15,11 +16,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todos/', include('example_app.urls', namespace='example_app')),
-    path('', RedirectView.as_view(url='/todos/')),
+    path('',include('Home.urls')),
+    re_path(r'[Hh][Oo][Mm][Ee]/',include('Home.urls'))
 ]
