@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+App2 Results
+{% endblock title %}
+
+{% block container1 %}
+<h3>Your Result</h3>
+{% endblock container1 %}
+
+{% block container3 %}
+<h2>...Thanks for Visiting...</h2><br>
+<a href = ''>Check for other dates</a>
+{% endblock container3 %}
+
+{% block padding3 %}
+padding:2%;
+{% endblock padding3 %}
+
+{% block container2 %}
+<h3>{{comp}}</h3>
+<table border="4">
+<style>
+    table {
+        margin:auto;
+        margin-top:2%;
+    }
+    th, td {
+        border: 2px solid black; /* Add border to each cell */
+        padding: 20px; /* Add padding for better readability */
+        text-align: left; /* Align text to the left */
+    }
+</style>
+<tbody>
+    <tr>
+        <td>{{num1}}</td>
+        <td>{{num2}}</td>
+        <td>{{num3}}</td>
+    </tr>
+    <tr>
+        <td>{{num4}}</td>
+        <td>{{num5}}</td>
+        <td>{{num6}}</td>
+    </tr>
+    <tr>
+        <td>{{num7}}</td>
+        <td>{{num8}}</td>
+        <td>{{num9}}</td>
+    </tr>
+</tbody>
+</table>
+{% endblock container2 %}
+
+{% block animation %}
+{% if n > 20 %}
+    <style>
+        #main{
+            background-image: url('/static/bg-image.jpg');
+            background-repeat: repeat-y;
+            background-size: 100vi;
+        }
+    </style>
+    {% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+    <script>
+        VANTA.DOTS({
+          el: "#main",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00
+        })
+        </script>
+{% endif %}
+{% endblock animation %}

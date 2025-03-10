@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+App1 Results
+{% endblock title %}
+
+{% block container1 %}
+<h2>{{ variable|linebreaks }}</h2>
+{% endblock container1 %}
+
+{% block container3 %}
+<h2>{{variable1}}</h2>
+{% endblock container3 %}
+
+{% block padding3 %}
+padding:2%;
+{% endblock padding3 %}
+
+{% block container2 %}
+
+<h3>Your Results</h3>
+{% if final_list_0 == "No Matching Dates Found...." %}
+    <h3>{{final_list_0}}</h3>
+    {% if r1 != 10 and r2 != 10 %}
+        <h3>Please Try Increasing The Range</h3>
+        <a href='../app1/'>Click Here</a>
+        <h3>Or</h3>
+    {% endif %}
+    {% if compatibility > 0 %}
+        <h3>Please Try Decreasing The Compatibility</h3>
+        <a href='../app1/'>Click Here</a>
+        <h3>Or</h3>
+    {% endif %}
+    <h3>Please Try Other Apps</h3>
+    <a href='../../numerology/'>Numerology Apps</a>
+{% else %}
+    {% for i in  final_list %}
+        <li style="text-align: left;">{{i}}</li>
+    {% endfor %}
+{% endif %}
+{% endblock container2 %}
+
+{% block animation %}
+{% if n > 20 %}
+    <style>
+        #main{
+            background-image: url('/static/bg-image.jpg');
+            background-repeat: repeat-y;
+            background-size: 100vi;
+        }
+    </style>
+    {% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+    <script>
+        VANTA.DOTS({
+          el: "#main",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00
+        })
+        </script>
+{% endif %}
+{% endblock animation %}

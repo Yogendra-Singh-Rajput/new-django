@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Loshu Cube - Generator
+{% endblock title %}
+
+{% block container1 %}
+<h1>Loshu Generator</h1>
+{% endblock container1 %}
+
+{% block container2 %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="dob1">Date of Birth &nbsp</label>
+    <input type="date" name="dob1"  max="9999-12-31"><br><br>
+    <input type="submit" value="Submit" class="buttons" id="button1">
+</form>
+{% endblock container2 %}
+
+{% block padding3 %}
+padding:0px
+{% endblock padding3 %}
+
+
+

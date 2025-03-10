@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}
+App2 Results
+{% endblock title %}
+
+{% block container1 %}
+<h3>Your Result</h3>
+{% endblock container1 %}
+
+{% block container3 %}
+<h2>...Thanks for Visiting...</h2><br>
+<a href = ''>Check for other dates</a>
+{% endblock container3 %}
+
+{% block padding3 %}
+padding:2%;
+{% endblock padding3 %}
+
+{% block container2 %}
+<style>
+    #table1 {
+        margin:auto;
+        margin-top:2%;
+    }
+    #table1 th, #table1 td {
+        border: 2px solid black; /* Add border to each cell */
+        padding: 20px; /* Add padding for better readability */
+        text-align: left; /* Align text to the left */
+    }
+</style>
+<table border="4" id='table1'>
+
+<tbody>
+    <tr>
+        <td>{{num1}}</td>
+        <td>{{num2}}</td>
+        <td>{{num3}}</td>
+    </tr>
+    <tr>
+        <td>{{num4}}</td>
+        <td>{{num5}}</td>
+        <td>{{num6}}</td>
+    </tr>
+    <tr>
+        <td>{{num7}}</td>
+        <td>{{num8}}</td>
+        <td>{{num9}}</td>
+    </tr>
+</tbody>
+</table>
+
+
+
+
+{% endblock container2 %}
+
+{% block container4 %}
+<style>
+    #table2 {
+        margin:auto;
+        margin-top:2%;
+        zoom:0.8;
+    }
+    #table2 th, #table2 td {
+        border: 2px solid black; /* Add border to each cell */
+        padding: 5px; /* Add padding for better readability */
+        text-align: left; /* Align text to the left */
+        height:30vh;
+        width:40vh;
+    }
+    #table2 span {
+        margin-top:0;
+    }
+</style>
+<table id="table2">
+   
+    <tbody>
+        <tr>
+            {% if num1 != '-' %} <td style="background-color:purple;color:#fff"><span>{{num1}}</span><br><br>Luck, Money<br>Discipline, Self-worth, Power<br><br><span>Element: Soft wood<br>Planet: Rahu<br>Merit: Wealth<br>Direction: South-East</span></td>{% else %}<td style="background-color:purple;color:#fff"><span>-</span></td>{% endif %}
+            {% if num2 != '-' %} <td style="background-color:red;color:#fff"><span>{{num2}}</span><br><br>Prosperity, Humanity<br>Social life, Fame, Reputation<br><br><span>Element: Fire<br>Planet: Mars<br>Merit: Fame<br>Direction: South</span></td> {% else %} <td style="background-color:red;color:#fff"><span>-</span></td>{% endif %}
+            {% if num3 != '-' %} <td style="background-color:pink;color:#000"><span>{{num3}}</span><br><br>Marriage, Love, Relationship<br>Sensitivity, Intuition, Mother<br><br><span class="s1">Element: Earth<br>Planet: Moon<br>Merit: Marriage and Relation<br>Direction: South-West</span></td> {% else %} <td style="background-color:pink;color:#000"><span>-</span></td>{% endif %}
+        </tr>
+        <tr>
+            {% if num4 != '-' %} <td style="background-color:green;color:#fff"><span>{{num4}}</span><br><br>Health, Planning, Imagination<br>Family, Wisdom, Past<br><br><span class="s1">Element: Hard wood<br>Planet: Jupiter<br>Merit: Health, Family<br>Direction: East</span></td> {% else %} <td style="background-color:green;color:#fff"><span>-</span></td>{% endif %}
+            {% if num5 != '-' %} <td style="background-color:orange;color:#000"><span>{{num5}}</span><br><br>Balance, Stability<br>Fortune, Mental health, Freedom<br><br><span class="s1">Element: Earth<br>Planet: Mercury<br>Merit: Work Energy<br>Direction: Center</span></td> {% else %} <td style="background-color:orange;color:#000"><span>-</span></td>{% endif %}
+            {% if num6 != '-' %} <td style="background-color:silver;color:#000"><span>{{num6}}</span><br><br>Children, Creativity, Disappointments<br>Entertainment, Future<br><br><span class="s1">Element: Soft metal<br>Planet: Ketu<br>Merit: Children<br>Direction: West</span></td>{% else %} <td style="background-color:silver;color:#000"><span>-</span></td>{% endif %}
+        </tr>
+        <tr>
+            {% if num7 != '-' %} <td style="background-color:#3333ff;color:#fff"><span>{{num7}}</span><br><br>Knowledge, Motivation, Intuition<br>Organized, Spirituality, Study<br><br><span class="s1">Element: Earth<br>Planet: Saturn<br>Merit: Knowledge<br>Direction: North-East</span></td> {% else %} <td style="background-color:#3333ff;color:#fff"><span>-</span></td>{% endif %}
+            {% if num8 != '-' %} <td style="background-color:black;color:#fff"><span>{{num8}}</span><br><br>Career, Success, Job<br>Business, Communication, Individuality<br><br><span class="s1">Element: Water<br>Planet: Sun<br>Merit: Career<br>Direction: North</span></td> {% else %} <td style="background-color:black;color:#fff"><span>-</span></td>{% endif %}
+            {% if num9 != '-' %} <td style="background-color:#f5f5f5;color:#000"><span>{{num9}}</span><br><br>Friends, Travelling<br>New beginnings, Spirituality, Father<br><br><span class="s1">Element: Hard metal<br>Planet: Venus<br>Merit: Friends<br>Direction: North-West</span></td> {% else %} <td style="background-color:#f5f5f5;color:#000"><span>-</span></td>{% endif %}
+        </tr>
+    </tbody>
+</table>
+{% endblock container4 %}
+
+{% block animation %}
+{% if n > 20 %}
+    <style>
+        #main{
+            background-image: url('/static/bg-image.jpg');
+            background-repeat: repeat-y;
+            background-size: 100vi;
+        }
+    </style>
+    {% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+    <script>
+        VANTA.DOTS({
+          el: "#main",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00
+        })
+        </script>
+{% endif %}
+{% endblock animation %}

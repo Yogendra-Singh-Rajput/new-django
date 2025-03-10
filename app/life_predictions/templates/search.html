@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Search Page
+{% endblock title %}
+
+{% block container1 %}
+<h1>Your Search Results - </h1>
+{% endblock container1 %}
+
+{% block container2 %}
+{% for i,j in final_list %}
+<li style="text-align:left;"><a href={{j}}>{{i|safe}}</a></li>
+{% endfor %}
+{% endblock container2 %}
+
+{% block padding3 %}
+padding:0;
+{% endblock padding3 %}
+
+
+
+{% block animation %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script>
+  VANTA.NET({
+    el: "#main",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00
+  })
+  </script>
+{% endblock animation %}
+
