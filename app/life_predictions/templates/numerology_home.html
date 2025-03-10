@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Numerology Home
+{% endblock title %}
+
+{% block container1 %}
+<h1>Welecome to Numerology Home Page</h1>
+{% endblock container1 %}
+
+{% block container2 %}
+<h2>Availble Apps - </h2>
+{% endblock container2 %}
+
+{% block container3_script %}
+<script>
+  var c = 0
+  function change_height() {
+      c+=1;
+      if(c==1){
+          console.log('Here');
+          document.getElementById('container3').style.height=document.getElementById("container3").offsetHeight+'px';
+      }
+  }
+</script>
+{% endblock container3_script %}
+
+{% block container3 %}
+{% for i,j in apps %}
+<h4><a href={{j}}>{{i}}</a></h4>
+{% endfor %}
+{% endblock container3 %}
